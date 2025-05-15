@@ -16,7 +16,62 @@ Synthesis requires three files as follows,
 
 ◦ Liberty Files (.lib)
 
+
 ◦ Verilog/VHDL Files (.v or .vhdl or .vhd)
+
+**Design Code**
+
+module ALU (
+    input  [3:0] A, B,
+    input  [2:0] ALU_Sel,
+    output reg [3:0] ALU_Out,
+    output reg CarryOut
+);
+
+    always @(*) begin
+        case (ALU_Sel)
+            3'b000: {CarryOut, ALU_Out} = A + B;
+            3'b001: {CarryOut, ALU_Out} = A - B;
+            3'b010: ALU_Out = A & B;
+            3'b011: ALU_Out = A | B;
+            3'b100: ALU_Out = A ^ B;
+            3'b101: ALU_Out = ~A;
+            3'b110: ALU_Out = A << 1;
+            3'b111: ALU_Out = A >> 1;
+            default: ALU_Out = 4'b0000;
+        endcase
+    end
+endmodule
+
+**TestBench:**
+
+module ALU_tb;
+    reg [3:0] A, B;
+    reg [2:0] ALU_Sel;
+    wire [3:0] ALU_Out;
+    wire CarryOut;
+
+    ALU uut (
+        .A(A),
+        .B(B),
+        .ALU_Sel(ALU_Sel),
+        .ALU_Out(ALU_Out),
+        .CarryOut(CarryOut)
+    );
+
+    initial begin
+        A = 4'b0101; B = 4'b0011; ALU_Sel = 3'b000; #10;
+        A = 4'b0101; B = 4'b0011; ALU_Sel = 3'b001; #10;
+        A = 4'b1100; B = 4'b1010; ALU_Sel = 3'b010; #10;
+        A = 4'b1100; B = 4'b1010; ALU_Sel = 3'b011; #10;
+        A = 4'b1100; B = 4'b1010; ALU_Sel = 3'b100; #10;
+        A = 4'b1100; B = 4'b1010; ALU_Sel = 3'b101; #10;
+        A = 4'b0011; B = 4'b0000; ALU_Sel = 3'b110; #10;
+        A = 4'b0011; B = 4'b0000; ALU_Sel = 3'b111; #10;
+        $finish;
+    end
+endmodule
+
 
 ### Step 2 : Performing Synthesis
 
@@ -29,19 +84,31 @@ used.
 
 ◦ csh
 
+![Screenshot 2025-04-22 181212](https://github.com/user-attachments/assets/48ff614f-3f23-4a40-8e44-52e371f82953)
+
+
 ◦ source /cadence/install/cshrc
 
+![Screenshot 2025-05-15 183111](https://github.com/user-attachments/assets/b3424208-95f5-4950-bc71-c9e967928d33)
+
 • The tool used for Synthesis is “Genus”. Hence, type “genus -gui” to open the tool.
+
+![Screenshot 2025-05-15 181245](https://github.com/user-attachments/assets/96c38ddd-6228-4ec2-a206-5d9fca0b13e9)
+
 
 • Genus Script file with .tcl file Extension commands are executed one by one to synthesize the netlist.
 
 #### Synthesis RTL Schematic :
+
+
 
 #### Area report:
 
 #### Power Report:
 
 #### Result: 
+
+![Screenshot 2025-05-02 174025](https://github.com/user-attachments/assets/f8fdf1bc-6a60-4037-98f7-ce5fba4ce1d8)
 
 ![Screenshot 2025-05-02 174025](https://github.com/user-attachments/assets/7ded7db4-dfcf-4830-820b-1f6b0756250b)
 

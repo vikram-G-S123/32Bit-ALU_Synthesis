@@ -16,6 +16,7 @@ Synthesis requires three files as follows,
 
 ◦ Liberty Files (.lib)
 
+![Screenshot 2025-04-22 181212](https://github.com/user-attachments/assets/6e5dd622-900f-47c3-81ef-2b370707db70)
 
 ◦ Verilog/VHDL Files (.v or .vhdl or .vhd)
 
@@ -77,6 +78,9 @@ endmodule
 
 The Liberty files are present in the library path,
 
+![Screenshot 2025-05-15 180504](https://github.com/user-attachments/assets/aceb5b03-18b5-41e7-9360-b36b1a06200a)
+
+
 • The Available technology nodes are 180nm ,90nm and 45nm.
 
 • In the terminal, initialise the tools with the following commands if a new terminal is being
@@ -85,7 +89,6 @@ used.
 ◦ csh
 
 ![Screenshot 2025-04-22 181212](https://github.com/user-attachments/assets/48ff614f-3f23-4a40-8e44-52e371f82953)
-
 
 ◦ source /cadence/install/cshrc
 
@@ -100,17 +103,22 @@ used.
 
 #### Synthesis RTL Schematic :
 
+![Screenshot 2025-04-25 173137](https://github.com/user-attachments/assets/ebf69a2a-a9d3-4480-94e4-ae179ede563e)
 
 
 #### Area report:
 
+![Screenshot 2025-05-15 181153](https://github.com/user-attachments/assets/dfad60a5-ac01-4d4d-9d05-498ccea2cff9)
+
+
 #### Power Report:
+
+![Screenshot 2025-05-15 180714](https://github.com/user-attachments/assets/c3bc3f33-0477-4448-87a5-0849f097373e)
+
 
 #### Result: 
 
 ![Screenshot 2025-05-02 174025](https://github.com/user-attachments/assets/f8fdf1bc-6a60-4037-98f7-ce5fba4ce1d8)
-
-![Screenshot 2025-05-02 174025](https://github.com/user-attachments/assets/7ded7db4-dfcf-4830-820b-1f6b0756250b)
 
 
 The generic netlist of 32 bit ALU  has been created, and area, power reports have been tabulated and generated using Genus.

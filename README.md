@@ -87,9 +87,6 @@ The Liberty files are present in the library path,
 used.
 
 ◦ csh
-
-![Screenshot 2025-04-22 181212](https://github.com/user-attachments/assets/48ff614f-3f23-4a40-8e44-52e371f82953)
-
 ◦ source /cadence/install/cshrc
 
 ![Screenshot 2025-05-15 183111](https://github.com/user-attachments/assets/b3424208-95f5-4950-bc71-c9e967928d33)
